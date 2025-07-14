@@ -2,6 +2,7 @@ import cookieParser from "cookie-parser"
 import express from "express"
 import { errorMiddleware } from "./middlewares/error.middleware.js"
 import "dotenv/config"
+import shortUrlRoute from "./routes/urlshortner.route.js"
 import { connectToDB } from "./config/db.config.js"
 
 const app = express()
@@ -10,7 +11,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
 app.use(express.json())
 
-app.use("/api/v1/auth",authRoutes)
+app.use("/",shortUrlRoute)
 
 
 
